@@ -23,6 +23,8 @@ def parse_add_command(command: str) -> Task:
                 time = args[i + 1]
             elif args[i] == '--priority':
                 priority = args[i + 1]
+            elif args[i] == '--description':
+                description = args[i + 1]
 
         if not (title and date and time):
             raise ValueError('Required arguments not provided (title, date, time)')
