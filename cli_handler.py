@@ -3,6 +3,7 @@ from datetime import datetime
 from parser import parse_add_command
 from storage import save_task, load_tasks, save_all_tasks
 from user import User
+from sync import sync_task_to_google
 
 def handle_input(user_input : str, current_user : User) -> None:
     if user_input.startswith('/add'):
@@ -13,6 +14,8 @@ def handle_input(user_input : str, current_user : User) -> None:
         handle_delete(user_input, current_user)
     elif user_input.startswith('/edit'):
         handle_edit(user_input, current_user)
+    elif user_input.startswith('/sync'):
+        sync_task_to_google(current_user)
     else:
         print('Unknown command!')
 
